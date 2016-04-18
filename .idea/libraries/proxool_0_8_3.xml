@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="proxool-0.8.3">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/proxool-0.8.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/hibernate-proxool-4.3.11.Final.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

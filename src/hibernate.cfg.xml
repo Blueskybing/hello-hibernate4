@@ -1,0 +1,51 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- 配置数据库基本信息 -->
+        <property name="hibernate.connection.url">jdbc:mysql://119.29.110.120:3306/test</property>
+        <property name="hibernate.connection.username">admin</property>
+        <property name="hibernate.connection.password"><![CDATA[#MySQL@yuwan&5miao$]]></property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <!-- 配置hibernate所使用数据库方言 -->
+        <property name="dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
+        <!-- 执行操作时数据库是否打印 SQL-->
+        <property name="show_sql">true</property>
+        <!-- 是否对 SQL 格式化-->
+        <property name="format_sql">true</property>
+        <!-- 指定自动生存数据表的策略-->
+        <property name="hbm2ddl.auto">update</property>
+
+
+        <!-- 配置C3P0 连接池 -->
+        <property name="hibernate.connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider
+        </property>
+        <property name="hibernate.c3p0.min_size">1</property>
+        <property name="hibernate.c3p0.max_size">10</property>
+        <property name="hibernate.c3p0.max_statements">3</property>
+        <property name="hibernate.c3p0.timeout">30</property>
+        <property name="hibernate.c3p0.acquire_increment">1</property>
+        <property name="hibernate.c3p0.idle_test_periodt">10</property>
+
+        <!-- 配置二级缓存 -->
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="hibernate.cache.use_query_cache">true</property>
+        <!-- Hibernate4 这里和Hibernate3不一样 要特别注意！！！-->
+        <property name="hibernate.cache.region.factory_class">
+            org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
+        </property>
+        <property name="hibernate.cache.provider_class">
+            net.sf.ehcache.hibernate.SingletonEhCacheProvider
+        </property>
+        <!-- 指定关联的 .hbm.xml 文件
+        <mapping resource="entity/user.hbm.xml"/>
+        -->
+        <!-- 采用注解方式配置实体类 -->
+        <mapping class="entity.User"/>
+
+
+
+    </session-factory>
+</hibernate-configuration>
